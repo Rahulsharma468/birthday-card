@@ -6,44 +6,20 @@ export default function BirthdayPage() {
   const musicUrlRef = useRef(null);
   const volumeRef = useRef(50);
 
-  // Glitter/Floating Sparkle Creation Functions
   useEffect(() => {
-    // playMusic()
     const glitterTypes = [
-      {
-        symbol: "✨",
-        class: "star",
-        colors: ["#ffd700", "#ffff00", "#fff700"],
-      },
-      {
-        symbol: "💖",
-        class: "heart",
-        colors: ["#ff69b4", "#ff1493", "#ff91a4"],
-      },
-      {
-        symbol: "💎",
-        class: "diamond",
-        colors: ["#fff", "#e6e6fa", "#f0f8ff"],
-      },
+      { symbol: "✨", class: "star", colors: ["#ffd700", "#ffff00", "#fff700"] },
+      { symbol: "💖", class: "heart", colors: ["#ff69b4", "#ff1493", "#ff91a4"] },
+      { symbol: "💎", class: "diamond", colors: ["#fff", "#e6e6fa", "#f0f8ff"] },
       { symbol: "🌟", class: "star", colors: ["#ffd700", "#ffdf00", "#fff"] },
-      {
-        symbol: "💫",
-        class: "sparkle",
-        colors: ["#ff69b4", "#ffd700", "#fff"],
-      },
-      {
-        symbol: "🎀",
-        class: "heart",
-        colors: ["#ff69b4", "#ff1493", "#ffc0cb"],
-      },
+      { symbol: "💫", class: "sparkle", colors: ["#ff69b4", "#ffd700", "#fff"] },
+      { symbol: "🎀", class: "heart", colors: ["#ff69b4", "#ff1493", "#ffc0cb"] },
     ];
 
     function createGlitter() {
       const glitter = document.createElement("div");
       glitter.classList.add("glitter");
-
-      const type =
-        glitterTypes[Math.floor(Math.random() * glitterTypes.length)];
+      const type = glitterTypes[Math.floor(Math.random() * glitterTypes.length)];
       glitter.classList.add(type.class);
       glitter.innerHTML = type.symbol;
       glitter.style.left = Math.random() * 100 + "vw";
@@ -71,15 +47,8 @@ export default function BirthdayPage() {
       sparkle.classList.add("glitter", "sparkle");
       sparkle.style.left = Math.random() * 100 + "vw";
       sparkle.style.animationDuration = Math.random() * 2 + 1 + "s";
-      const sparkleColors = [
-        "#fff",
-        "#ffd700",
-        "#ff69b4",
-        "#ff1493",
-        "#e6e6fa",
-      ];
-      const color =
-        sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+      const sparkleColors = ["#fff", "#ffd700", "#ff69b4", "#ff1493", "#e6e6fa"];
+      const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
       sparkle.style.background = `radial-gradient(circle, ${color}, transparent)`;
       sparkle.style.boxShadow = `0 0 15px ${color}`;
       document.body.appendChild(sparkle);
@@ -152,13 +121,13 @@ export default function BirthdayPage() {
         <div className="birthday-content">
           <p className="subtitle">✨ HAPPY 22nd BIRTHDAY ✨</p>
           <h1 className="birthday-text"> 💖 Preeti Sharma 💖</h1>
-          <p className="princess-text">🌟 Most Amazing Girl In my Life. 🌟</p>
+          <p className="princess-text">🌟 The Most Amazing Girl In my Life. 🌟</p>
           <p className="princess-text">
             You make my world brighter, my days happier, and my heart fuller.
           </p>
           <p className="princess-text">
             I’m so grateful for you, and I can’t wait to make countless more
-            memories together.{" "}
+            memories together.
           </p>
         </div>
       </div>
@@ -170,21 +139,6 @@ export default function BirthdayPage() {
         <div className="decoration-item">💎</div>
         <div className="decoration-item">🎀</div>
       </div>
-
-      {/* <div className="music-controls" style={{ position: "fixed", top: 20, right: 20 }}>
-        <input ref={musicUrlRef} placeholder="Enter music URL..." />
-        <button onClick={playMusic}>Play</button>
-        <button onClick={pauseMusic}>Pause</button>
-        <button onClick={stopMusic}>Stop</button>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          defaultValue="50"
-          ref={volumeRef}
-          onChange={changeVolume}
-        />
-      </div> */}
     </div>
   );
 }
